@@ -88,6 +88,13 @@ cloudscraper.request = function(options, callback) {
   }
 }
 
+cloudscraper.setRequestProxy = function(ip, port) {
+  request = requestModule.defaults({
+    jar: jar,
+    proxy: 'http://' + ip + ':' + port
+  });
+}
+
 // The promisable variable is boolean.
 // If promisable === true, then the callback is an object and contains resolve and reject callbacks.
 // If promisable === false, then the callback is a function.
